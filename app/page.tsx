@@ -175,6 +175,78 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="skin-studies" id="skin" aria-labelledby="skin-studies-title">
+        <header className="skin-studies-intro">
+          <p className="eyebrow">Skin / observed</p>
+          <h2 id="skin-studies-title">The surface<br />tells a story.</h2>
+          <p>
+            Before intervention comes observation. Texture, comfort, movement and
+            ritual shape how care is understood, experienced and sustained.
+          </p>
+          <div className="skin-study-index" aria-hidden="true">
+            <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+          </div>
+        </header>
+
+        <figure className="skin-frame skin-frame-texture">
+          <Image
+            src="/editorial/skin-texture.jpg"
+            alt="Close study of natural skin texture"
+            fill
+            sizes="(max-width: 760px) 100vw, 42vw"
+          />
+          <figcaption><span>01</span> Texture / close observation</figcaption>
+        </figure>
+
+        <figure className="skin-frame skin-frame-embrace">
+          <Image
+            src="/editorial/skin-embrace.jpg"
+            alt="A person gently holding their shoulder"
+            fill
+            sizes="(max-width: 760px) 100vw, 25vw"
+          />
+          <figcaption><span>02</span> Respect / the whole person</figcaption>
+        </figure>
+
+        <figure className="skin-frame skin-frame-touch">
+          <Image
+            src="/editorial/skin-touch.jpg"
+            alt="A gentle hand resting at the neck and shoulder"
+            fill
+            sizes="(max-width: 760px) 100vw, 34vw"
+          />
+          <figcaption><span>03</span> Touch / quiet attention</figcaption>
+        </figure>
+
+        <figure className="skin-frame skin-frame-ritual">
+          <Image
+            src="/editorial/skin-ritual.jpg"
+            alt="Skincare cream being applied across the collarbone"
+            fill
+            sizes="(max-width: 760px) 100vw, 34vw"
+          />
+          <figcaption><span>04</span> Ritual / care made tangible</figcaption>
+        </figure>
+
+        <blockquote className="skin-study-note">
+          <span>Observation 01</span>
+          <p>
+            The skin is not a surface to perfect. It is a living context to
+            observe, respect and support.
+          </p>
+        </blockquote>
+
+        <figure className="skin-frame skin-frame-vitality">
+          <Image
+            src="/editorial/skin-vitality.jpg"
+            alt="Sunlit skin with fine water droplets"
+            fill
+            sizes="(max-width: 760px) 100vw, 34vw"
+          />
+          <figcaption><span>05</span> Vitality / sensorial presence</figcaption>
+        </figure>
+      </section>
+
       <section className="seal-story" aria-label="TANUVA house seal">
         <div className="seal-image" />
         <div className="seal-copy">
