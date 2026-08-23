@@ -268,7 +268,7 @@ export default function Home() {
         <div className="product-visual">
           <Image
             className="product-portrait"
-            src="/product/precision-drop.webp"
+            src="/product/precision-drop.png"
             alt="A suspended liquid droplet above a reflective glass vessel"
             fill
             sizes="(max-width: 760px) 100vw, 57vw"
