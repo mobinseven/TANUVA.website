@@ -1077,7 +1077,7 @@ input {
 
 .product-portrait {
   object-fit: cover;
-  object-position: 31% center;
+  object-position: center 48%;
   transform: scale(1.035);
   transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -2120,7 +2120,7 @@ footer {
   }
 
   .product-portrait {
-    object-position: 29% center;
+    object-position: center 48%;
   }
 
   .product-visual-caption {

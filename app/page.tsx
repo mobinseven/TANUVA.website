@@ -268,14 +268,14 @@ export default function Home() {
         <div className="product-visual">
           <Image
             className="product-portrait"
-            src="/product/exo-gf-chrome-jar.png"
-            alt="TANUVA EXO-GF Bioactive Repair Cream in its reflective silver airless jar"
+            src="/product/precision-drop.jpg"
+            alt="A suspended liquid droplet above a reflective glass vessel"
             fill
             sizes="(max-width: 760px) 100vw, 57vw"
           />
           <div className="product-visual-caption">
             <span>01</span>
-            <p>EXO-GF / Bioactive Repair Cream</p>
+            <p>Precision delivery / formulation study</p>
           </div>
         </div>
         <div className="product-copy">
