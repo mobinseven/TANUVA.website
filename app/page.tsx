@@ -112,22 +112,19 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="hero-still" aria-label="TANUVA Bioactive Repair Cream concept bottle">
-          <div className="petal petal-one" />
-          <div className="petal petal-two" />
-          <div className="petal petal-three" />
-          <div className="petal petal-four" />
-          <div className="product-shadow" />
-          <div className="concept-jar">
-            <div className="jar-cap"><span /></div>
-            <div className="jar-body">
-              <p>EXO-GF</p>
-              <strong>Advanced Repair</strong>
-              <small>Bioactive Repair Cream</small>
-              <em>30 mL / 1.0 fl. oz.</em>
-            </div>
+        <div className="hero-still">
+          <Image
+            className="hero-product-photo"
+            src="/product/exo-gf-chrome-jar.png"
+            alt="TANUVA EXO-GF Bioactive Repair Cream in its reflective silver airless jar"
+            fill
+            priority
+            sizes="(max-width: 760px) 100vw, 54vw"
+          />
+          <div className="hero-product-caption">
+            <span>01</span>
+            <p>The first expression / EXO-GF</p>
           </div>
-          <p className="still-note">A study in material, texture and restraint.</p>
         </div>
       </section>
 
@@ -184,7 +181,7 @@ export default function Home() {
             ritual shape how care is understood, experienced and sustained.
           </p>
           <div className="skin-study-index" aria-hidden="true">
-            <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+            <span>01</span><span>02</span><span>03</span>
           </div>
         </header>
 
@@ -198,26 +195,6 @@ export default function Home() {
           <figcaption><span>01</span> Texture / close observation</figcaption>
         </figure>
 
-        <figure className="skin-frame skin-frame-embrace">
-          <Image
-            src="/editorial/skin-embrace.jpg"
-            alt="A person gently holding their shoulder"
-            fill
-            sizes="(max-width: 760px) 100vw, 25vw"
-          />
-          <figcaption><span>02</span> Respect / the whole person</figcaption>
-        </figure>
-
-        <figure className="skin-frame skin-frame-touch">
-          <Image
-            src="/editorial/skin-touch.jpg"
-            alt="A gentle hand resting at the neck and shoulder"
-            fill
-            sizes="(max-width: 760px) 100vw, 34vw"
-          />
-          <figcaption><span>03</span> Touch / quiet attention</figcaption>
-        </figure>
-
         <figure className="skin-frame skin-frame-ritual">
           <Image
             src="/editorial/skin-ritual.jpg"
@@ -225,7 +202,7 @@ export default function Home() {
             fill
             sizes="(max-width: 760px) 100vw, 34vw"
           />
-          <figcaption><span>04</span> Ritual / care made tangible</figcaption>
+          <figcaption><span>02</span> Ritual / care made tangible</figcaption>
         </figure>
 
         <blockquote className="skin-study-note">
@@ -243,7 +220,7 @@ export default function Home() {
             fill
             sizes="(max-width: 760px) 100vw, 34vw"
           />
-          <figcaption><span>05</span> Vitality / sensorial presence</figcaption>
+          <figcaption><span>03</span> Vitality / sensorial presence</figcaption>
         </figure>
       </section>
 
@@ -286,17 +263,16 @@ export default function Home() {
 
       <section className="product" id="product">
         <div className="product-visual">
-          <div className="halo" />
-          <div className="product-petal product-petal-a" />
-          <div className="product-petal product-petal-b" />
-          <div className="product-vessel">
-            <div className="vessel-top" />
-            <div className="vessel-label">
-              <p>EXO-GF</p>
-              <strong>Advanced Repair</strong>
-              <span>Bioactive Repair Cream</span>
-              <small>Repair · Firm · Brighten</small>
-            </div>
+          <Image
+            className="product-portrait"
+            src="/product/exo-gf-chrome-jar.png"
+            alt="TANUVA EXO-GF Bioactive Repair Cream in its reflective silver airless jar"
+            fill
+            sizes="(max-width: 760px) 100vw, 57vw"
+          />
+          <div className="product-visual-caption">
+            <span>01</span>
+            <p>EXO-GF / Bioactive Repair Cream</p>
           </div>
         </div>
         <div className="product-copy">
@@ -317,6 +293,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="presentation" aria-labelledby="presentation-title">
+        <div className="presentation-copy">
+          <p className="eyebrow">The art of presentation</p>
+          <h2 id="presentation-title">Composed<br />to be received.</h2>
+          <div className="fine-rule" />
+          <p>
+            The experience begins before the vessel is opened. Material, restraint
+            and the house seal turn presentation into a quiet act of care.
+          </p>
+          <span>Packaging study / 01</span>
+        </div>
+        <figure className="presentation-portrait">
+          <Image
+            src="/product/tanuva-sealed-box.jpg"
+            alt="TANUVA presentation box finished with cord and a dark rose seal"
+            fill
+            sizes="(max-width: 760px) 100vw, 50vw"
+          />
+        </figure>
+      </section>
+
       <section className="professionals" id="professionals">
         <div className="professional-number">04</div>
         <div className="professional-copy">
@@ -335,6 +332,26 @@ export default function Home() {
           <a className="text-link text-link-light" href="#contact">Speak with the house <i aria-hidden="true" /></a>
         </div>
         <div className="professional-orbit" aria-hidden="true"><span /></div>
+      </section>
+
+      <section className="heritage" aria-labelledby="heritage-title">
+        <figure className="heritage-portrait">
+          <Image
+            src="/house/iranian-geometry.jpg"
+            alt="An Iranian tiled architectural canopy photographed from below"
+            fill
+            sizes="(max-width: 760px) 100vw, 58vw"
+          />
+          <figcaption>Iran / architectural study</figcaption>
+        </figure>
+        <div className="heritage-copy">
+          <p className="eyebrow">Origin / geometry</p>
+          <h2 id="heritage-title">Forward,<br />without becoming<br /><em>anonymous.</em></h2>
+          <p>
+            Iranian proportion, craft and cultural memory inform a house made
+            contemporary through precision and restraint.
+          </p>
+        </div>
       </section>
 
       <section className="house" id="house">
