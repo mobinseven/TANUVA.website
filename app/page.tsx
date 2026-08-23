@@ -243,12 +243,15 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="science-canvas" aria-hidden="true">
-          <div className="glass-disc disc-one" />
-          <div className="glass-disc disc-two" />
-          <div className="drop" />
-          <span>EXO</span>
-        </div>
+        <figure className="science-canvas">
+          <Image
+            src="/science/petal-structure.jpg"
+            alt="Macro study of overlapping crimson petals and their fine natural structure"
+            fill
+            sizes="(max-width: 980px) 100vw, 34vw"
+          />
+          <figcaption><span>Material study / 01</span> Structure made visible</figcaption>
+        </figure>
 
         <div className="science-chapters" id="technology">
           {chapters.map(([title, copy], index) => (
