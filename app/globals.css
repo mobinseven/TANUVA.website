@@ -79,6 +79,86 @@ input {
   border: 0;
 }
 
+.intro-screen {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 32px;
+  background: var(--paper);
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.7s;
+}
+
+.intro-screen::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(181, 140, 92, 0.16);
+  pointer-events: none;
+}
+
+.intro-screen.is-leaving {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.intro-mark {
+  display: grid;
+  grid-template-columns: clamp(64px, 10vw, 160px) 124px clamp(64px, 10vw, 160px);
+  align-items: center;
+  gap: clamp(22px, 3vw, 42px);
+}
+
+.intro-mark span {
+  height: 1px;
+  background: var(--rose-line);
+  transform: scaleX(0);
+  animation: intro-rule 1s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.intro-mark span:first-child {
+  transform-origin: right;
+}
+
+.intro-mark span:last-child {
+  transform-origin: left;
+}
+
+.intro-mark img {
+  display: block;
+  width: 124px;
+  height: 124px;
+  opacity: 0;
+  transform: scale(0.94);
+  animation: intro-seal 1.15s 0.08s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.intro-screen p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: intro-copy 0.8s 0.55s ease forwards;
+}
+
+@keyframes intro-rule {
+  to { transform: scaleX(1); }
+}
+
+@keyframes intro-seal {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes intro-copy {
+  to { opacity: 1; }
+}
+
 .site-header {
   position: fixed;
   z-index: 50;

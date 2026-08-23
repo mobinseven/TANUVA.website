@@ -21,6 +21,32 @@ const chapters = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [introVisible, setIntroVisible] = useState(true);
+  const [introLeaving, setIntroLeaving] = useState(false);
+
+  useEffect(() => {
+    const startedAt = performance.now();
+    const pageReady = new Promise<void>((resolve) => {
+      if (document.readyState === "complete") resolve();
+      else window.addEventListener("load", () => resolve(), { once: true });
+    });
+
+    let exitTimer: ReturnType<typeof setTimeout>;
+    let removeTimer: ReturnType<typeof setTimeout>;
+
+    Promise.all([pageReady, document.fonts.ready]).then(() => {
+      const remaining = Math.max(0, 1200 - (performance.now() - startedAt));
+      exitTimer = setTimeout(() => {
+        setIntroLeaving(true);
+        removeTimer = setTimeout(() => setIntroVisible(false), 700);
+      }, remaining);
+    });
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.62);
@@ -30,16 +56,28 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen || introVisible ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+  }, [menuOpen, introVisible]);
 
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <main>
+      {introVisible && (
+        <div className={`intro-screen ${introLeaving ? "is-leaving" : ""}`} role="status" aria-live="polite">
+          <span className="sr-only">Preparing the TANUVA house</span>
+          <div className="intro-mark" aria-hidden="true">
+            <span />
+            <Image src="/assets/tanuva-logo.svg" alt="" width={124} height={124} priority />
+            <span />
+          </div>
+          <p>Advanced Skincare Technology House</p>
+        </div>
+      )}
+
       <header className={`site-header ${pastHero ? "is-compact" : ""}`}>
         <nav className="nav-shell" aria-label="Primary navigation">
           <div className="nav-group nav-group-left">
