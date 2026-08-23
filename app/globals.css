@@ -1646,11 +1646,43 @@ input {
 }
 
 footer {
+  --footer-shift: 96px;
+  position: relative;
+  z-index: 0;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #080706;
+  color: #fff;
+}
+
+.footer-parallax {
+  min-height: 100svh;
   display: grid;
-  grid-template-columns: 33% 39% 28%;
-  padding: 80px 6vw 38px;
-  background: var(--white);
-  border-top: 1px solid var(--line);
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(54px, 7vh, 92px) 6vw 34px;
+  transform: translate3d(0, var(--footer-shift), 0);
+  will-change: transform;
+}
+
+.footer-wordmark {
+  justify-self: center;
+  width: clamp(190px, 18vw, 280px);
+}
+
+.footer-wordmark img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-grid {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 31% 42% 27%;
+  width: 100%;
+  padding: clamp(58px, 10vh, 120px) 0 clamp(44px, 7vh, 86px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .footer-lead p,
@@ -1658,7 +1690,7 @@ footer {
 .newsletter label {
   display: block;
   margin: 0 0 24px;
-  color: #67574e;
+  color: #fff;
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.17em;
@@ -1667,12 +1699,13 @@ footer {
 
 .footer-lead h2 {
   font-size: clamp(34px, 3vw, 52px);
+  color: #fff;
 }
 
 .footer-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-left: 1px solid var(--line);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
   padding-left: 5vw;
 }
 
@@ -1681,19 +1714,19 @@ footer {
   display: block;
   width: max-content;
   margin: 0 0 12px;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.62);
   font-family: Georgia, serif;
   font-size: 12px;
 }
 
 .newsletter {
   padding-left: 5vw;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .newsletter p {
   max-width: 270px;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.62);
   font-family: Georgia, serif;
   font-size: 12px;
   line-height: 1.6;
@@ -1703,7 +1736,7 @@ footer {
   display: flex;
   max-width: 330px;
   margin-top: 22px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .newsletter input {
@@ -1715,6 +1748,11 @@ footer {
   outline: none;
   font-family: Georgia, serif;
   font-size: 12px;
+  color: #fff;
+}
+
+.newsletter input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
 }
 
 .newsletter button {
@@ -1728,13 +1766,10 @@ footer {
 }
 
 .footer-bottom {
-  grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
   padding-top: 24px;
-  border-top: 1px solid var(--line);
-  color: #8e8179;
+  color: rgba(255, 255, 255, 0.46);
   font-size: 9px;
   letter-spacing: 0.1em;
 }
@@ -2306,8 +2341,18 @@ footer {
   }
 
   footer {
+    min-height: 100svh;
+  }
+
+  .footer-parallax {
+    min-height: 100svh;
+    padding: 58px 28px 28px;
+  }
+
+  .footer-grid {
     grid-template-columns: 1fr;
-    padding: 70px 28px 28px;
+    align-self: start;
+    padding: 64px 0 44px;
   }
 
   .footer-links {
@@ -2315,7 +2360,7 @@ footer {
     row-gap: 38px;
     margin-top: 60px;
     padding: 50px 0 0;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
     border-left: 0;
   }
 

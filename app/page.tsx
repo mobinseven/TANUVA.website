@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const approach = [
@@ -23,6 +23,7 @@ export default function Home() {
   const [pastHero, setPastHero] = useState(false);
   const [introVisible, setIntroVisible] = useState(true);
   const [introLeaving, setIntroLeaving] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const startedAt = performance.now();
@@ -61,6 +62,31 @@ export default function Home() {
       document.body.style.overflow = "";
     };
   }, [menuOpen, introVisible]);
+
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = 0;
+    const updateFooter = () => {
+      frame = 0;
+      const rect = footer.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / window.innerHeight));
+      footer.style.setProperty("--footer-shift", `${(1 - progress) * 96}px`);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(updateFooter);
+    };
+
+    updateFooter();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -408,24 +434,31 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact">
-        <div className="footer-lead">
-          <p>Advanced Skincare Technology House</p>
-          <h2>Quiet science.<br />Made visible.</h2>
-        </div>
-        <div className="footer-links">
-          <div><p>House</p><a href="#philosophy">Philosophy</a><a href="#science">Science</a><a href="#technology">Technology</a></div>
-          <div><p>Explore</p><a href="#product">Product</a><a href="#professionals">Professionals</a><a href="#house">Our standards</a></div>
-          <div><p>Connect</p><a href="mailto:info@tanuva.beauty">info@tanuva.beauty</a><a href="https://tanuva.beauty">tanuva.beauty</a><span>@tanuva_beauty</span></div>
-        </div>
-        <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
-          <label htmlFor="email">Join our circle</label>
-          <p>Insights on science, skin and the art of responsible beauty.</p>
-          <div><input id="email" type="email" placeholder="Your email" aria-label="Email address" /><button type="submit">Join</button></div>
-        </form>
-        <div className="footer-bottom">
-          <span>© 2026 TANUVA. All rights reserved.</span>
-          <span>Privacy · Terms</span>
+      <footer id="contact" ref={footerRef}>
+        <div className="footer-parallax">
+          <a className="footer-wordmark" href="#home" aria-label="Return to TANUVA home">
+            <Image src="/assets/tanuva-logotype.svg" alt="TANUVA" width={280} height={31} />
+          </a>
+          <div className="footer-grid">
+            <div className="footer-lead">
+              <p>Advanced Skincare Technology House</p>
+              <h2>Quiet science.<br />Made visible.</h2>
+            </div>
+            <div className="footer-links">
+              <div><p>House</p><a href="#philosophy">Philosophy</a><a href="#science">Science</a><a href="#technology">Technology</a></div>
+              <div><p>Explore</p><a href="#product">Product</a><a href="#professionals">Professionals</a><a href="#house">Our standards</a></div>
+              <div><p>Connect</p><a href="mailto:info@tanuva.beauty">info@tanuva.beauty</a><a href="https://tanuva.beauty">tanuva.beauty</a><span>@tanuva_beauty</span></div>
+            </div>
+            <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
+              <label htmlFor="email">Join our circle</label>
+              <p>Insights on science, skin and the art of responsible beauty.</p>
+              <div><input id="email" type="email" placeholder="Your email" aria-label="Email address" /><button type="submit">Join</button></div>
+            </form>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 TANUVA. All rights reserved.</span>
+            <span>Privacy · Terms</span>
+          </div>
         </div>
       </footer>
     </main>
