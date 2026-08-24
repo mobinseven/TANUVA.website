@@ -71,8 +71,10 @@ export default function Home() {
     const updateFooter = () => {
       frame = 0;
       const rect = footer.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / window.innerHeight));
-      footer.style.setProperty("--footer-shift", `${(1 - progress) * 96}px`);
+      const viewport = window.innerHeight;
+      const travel = Math.max(1, rect.height - viewport);
+      const progress = Math.min(1, Math.max(0, (viewport - rect.top) / (viewport + travel)));
+      footer.style.setProperty("--footer-progress", progress.toFixed(4));
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(updateFooter);
@@ -436,28 +438,32 @@ export default function Home() {
 
       <footer id="contact" ref={footerRef}>
         <div className="footer-parallax">
-          <a className="footer-wordmark" href="#home" aria-label="Return to TANUVA home">
-            <Image src="/assets/tanuva-logotype.svg" alt="TANUVA" width={280} height={31} />
-          </a>
-          <div className="footer-grid">
-            <div className="footer-lead">
-              <p>Advanced Skincare Technology House</p>
-              <h2>Quiet science.<br />Made visible.</h2>
-            </div>
-            <div className="footer-links">
-              <div><p>House</p><a href="#philosophy">Philosophy</a><a href="#science">Science</a><a href="#technology">Technology</a></div>
-              <div><p>Explore</p><a href="#product">Product</a><a href="#professionals">Professionals</a><a href="#house">Our standards</a></div>
-              <div><p>Connect</p><a href="mailto:info@tanuva.beauty">info@tanuva.beauty</a><a href="https://tanuva.beauty">tanuva.beauty</a><span>@tanuva_beauty</span></div>
-            </div>
-            <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
-              <label htmlFor="email">Join our circle</label>
-              <p>Insights on science, skin and the art of responsible beauty.</p>
-              <div><input id="email" type="email" placeholder="Your email" aria-label="Email address" /><button type="submit">Join</button></div>
-            </form>
+          <div className="footer-title-layer">
+            <a className="footer-wordmark" href="#home" aria-label="Return to TANUVA home">
+              <Image src="/assets/tanuva-logotype.svg" alt="TANUVA" width={560} height={62} />
+            </a>
           </div>
-          <div className="footer-bottom">
-            <span>© 2026 TANUVA. All rights reserved.</span>
-            <span>Privacy · Terms</span>
+          <div className="footer-content-layer">
+            <div className="footer-grid">
+              <div className="footer-lead">
+                <p>Advanced Skincare Technology House</p>
+                <h2>Quiet science.<br />Made visible.</h2>
+              </div>
+              <div className="footer-links">
+                <div><p>House</p><a href="#philosophy">Philosophy</a><a href="#science">Science</a><a href="#technology">Technology</a></div>
+                <div><p>Explore</p><a href="#product">Product</a><a href="#professionals">Professionals</a><a href="#house">Our standards</a></div>
+                <div><p>Connect</p><a href="mailto:info@tanuva.beauty">info@tanuva.beauty</a><a href="https://tanuva.beauty">tanuva.beauty</a><span>@tanuva_beauty</span></div>
+              </div>
+              <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
+                <label htmlFor="email">Join our circle</label>
+                <p>Insights on science, skin and the art of responsible beauty.</p>
+                <div><input id="email" type="email" placeholder="Your email" aria-label="Email address" /><button type="submit">Join</button></div>
+              </form>
+            </div>
+            <div className="footer-bottom">
+              <span>© 2026 TANUVA. All rights reserved.</span>
+              <span>Privacy · Terms</span>
+            </div>
           </div>
         </div>
       </footer>
