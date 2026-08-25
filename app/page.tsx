@@ -246,9 +246,6 @@ export default function Home() {
             Before intervention comes observation. Texture, comfort, movement and
             ritual shape how care is understood, experienced and sustained.
           </p>
-          <div className="skin-study-index" aria-hidden="true">
-            <span>01</span><span>02</span><span>03</span>
-          </div>
         </header>
 
         <figure className="skin-frame skin-frame-texture">
@@ -261,33 +258,6 @@ export default function Home() {
           <figcaption><span>01</span> Texture / close observation</figcaption>
         </figure>
 
-        <figure className="skin-frame skin-frame-ritual">
-          <Image
-            src="/editorial/skin-ritual.jpg"
-            alt="Skincare cream being applied across the collarbone"
-            fill
-            sizes="(max-width: 760px) 100vw, 34vw"
-          />
-          <figcaption><span>02</span> Ritual / care made tangible</figcaption>
-        </figure>
-
-        <blockquote className="skin-study-note">
-          <span>Observation 01</span>
-          <p>
-            The skin is not a surface to perfect. It is a living context to
-            observe, respect and support.
-          </p>
-        </blockquote>
-
-        <figure className="skin-frame skin-frame-vitality">
-          <Image
-            src="/editorial/skin-vitality.jpg"
-            alt="Sunlit skin with fine water droplets"
-            fill
-            sizes="(max-width: 760px) 100vw, 34vw"
-          />
-          <figcaption><span>03</span> Vitality / sensorial presence</figcaption>
-        </figure>
       </section>
 
       <section className="seal-story" aria-label="TANUVA house seal">

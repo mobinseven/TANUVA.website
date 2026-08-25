@@ -790,8 +790,8 @@ input {
 
 .skin-studies {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 1.6vw, 28px);
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: clamp(40px, 7vw, 140px);
   padding: clamp(100px, 10vw, 170px) max(4vw, 28px);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
@@ -799,13 +799,13 @@ input {
 }
 
 .skin-studies-intro {
-  grid-column: 1 / -1;
-  grid-row: 1;
+  grid-column: 1;
+  grid-row: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: clamp(50px, 8vw, 150px);
-  padding: 0 0 clamp(52px, 6vw, 92px);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: 1fr;
+  align-content: center;
+  padding: clamp(30px, 6vw, 90px) 0;
+  border: 0;
 }
 
 .skin-studies-intro .eyebrow,
@@ -827,36 +827,21 @@ input {
 }
 
 .skin-studies-intro > p:not(.eyebrow) {
-  grid-column: 2;
-  grid-row: 1 / 3;
-  align-self: center;
+  grid-column: 1;
+  grid-row: auto;
+  align-self: auto;
   max-width: 430px;
-  margin: 0;
+  margin: 34px 0 0;
   color: var(--ink-soft);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 16px;
   line-height: 1.8;
 }
 
-.skin-study-index {
-  grid-column: 2;
-  display: flex;
-  gap: 18px;
-  margin-top: 34px;
-  padding-top: 0;
-}
-
-.skin-study-index span {
-  color: #99887e;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 10px;
-  font-style: italic;
-}
-
 .skin-frame {
   position: relative;
-  grid-row: 2;
-  aspect-ratio: 4 / 5;
+  grid-row: auto;
+  aspect-ratio: 4 / 5.15;
   min-height: 0;
   margin: 0;
   overflow: hidden;
@@ -904,54 +889,11 @@ input {
 }
 
 .skin-frame-texture {
-  grid-column: 1;
+  grid-column: 2;
 }
 
 .skin-frame-texture img {
   object-position: center 52%;
-}
-
-.skin-frame-ritual {
-  grid-column: 2;
-}
-
-.skin-frame-ritual img {
-  object-position: center 30%;
-}
-
-.skin-study-note {
-  grid-column: 1 / -1;
-  grid-row: 3;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
-  margin: 0;
-  padding: clamp(38px, 4vw, 68px) 0 0;
-  border-top: 1px solid var(--line);
-}
-
-.skin-study-note span {
-  color: #8f776a;
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.skin-study-note p {
-  max-width: 740px;
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 1.6vw, 28px);
-  line-height: 1.42;
-}
-
-.skin-frame-vitality {
-  grid-column: 3;
-}
-
-.skin-frame-vitality img {
-  object-position: center 50%;
 }
 
 .seal-story {
@@ -1922,10 +1864,6 @@ footer {
     padding-left: 60px;
   }
 
-  .skin-studies {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .skin-studies-intro h2 {
     font-size: 7vw;
   }
@@ -1933,10 +1871,6 @@ footer {
   .skin-studies-intro > p:not(.eyebrow) {
     margin-top: 28px;
     font-size: 14px;
-  }
-
-  .skin-study-index {
-    padding-top: 22px;
   }
 
   .science {
@@ -2142,11 +2076,6 @@ footer {
     font-size: 15px;
   }
 
-  .skin-study-index {
-    margin-top: 40px;
-    padding-top: 22px;
-  }
-
   .skin-frame {
     width: 100%;
     height: auto;
@@ -2162,20 +2091,6 @@ footer {
 
   .skin-frame-texture img {
     object-position: center 54%;
-  }
-
-  .skin-study-note {
-    display: block;
-    min-height: 250px;
-    padding: 46px 28px;
-  }
-
-  .skin-study-note p {
-    font-size: 24px;
-  }
-
-  .skin-frame-vitality {
-    height: auto;
   }
 
   .seal-story {
