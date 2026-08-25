@@ -260,8 +260,10 @@ export default function Home() {
 
       </section>
 
-      <section className="seal-story" aria-label="TANUVA house seal">
-        <div className="seal-image" />
+      <section className="seal-story" aria-label="TANUVA house standard">
+        <div className="seal-image" aria-hidden="true">
+          <Image src="/assets/tanuva-logotype.svg" alt="" width={760} height={84} />
+        </div>
         <div className="seal-copy">
           <p className="eyebrow">One house. One standard.</p>
           <h2>Not a sequence<br />of releases.<br />A coherent world.</h2>

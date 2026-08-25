@@ -910,13 +910,18 @@ input {
 .seal-image {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(244,233,226,0.02) 34%, rgba(244,233,226,0.52) 65%, rgba(244,233,226,0.92) 100%),
-    url("/assets/tanuva-seal-petals.jpg");
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 7vw;
+  background:
+    linear-gradient(90deg, #f4e9e2 0%, #f4e9e2 45%, rgba(244,233,226,0.84) 72%, #f4e9e2 100%);
+}
+
+.seal-image img {
+  width: min(52vw, 760px);
+  height: auto;
+  opacity: 0.78;
 }
 
 .seal-copy {
@@ -2100,10 +2105,13 @@ footer {
 
   .seal-image {
     height: 57%;
-    background-image: url("/assets/tanuva-seal-petals.jpg");
-    background-position: center;
-    background-size: cover;
-    background-attachment: scroll;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 16vh 28px 0;
+  }
+
+  .seal-image img {
+    width: min(84vw, 430px);
   }
 
   .seal-image::after {
@@ -2326,10 +2334,6 @@ footer {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .seal-image {
-    background-attachment: scroll;
   }
 
   footer {
