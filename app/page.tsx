@@ -3,14 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const approach = [
-  ["01", "Evidence first", "Every decision begins with what can be known."],
-  ["02", "Precise formulation", "Actives composed in intelligent harmony."],
-  ["03", "Rigorous testing", "Safety, stability and performance verified."],
-  ["04", "Sensorial intelligence", "Texture and finish designed for consistent use."],
-  ["05", "Responsible beauty", "Care for skin, professional trust and context."],
-];
-
 const chapters = [
   ["Bioactive complexes", "Selected actives support visible renewal with purpose, not novelty."],
   ["Precision delivery", "Formulation systems protect stability, texture and effective use."],
@@ -158,24 +150,11 @@ export default function Home() {
       </div>
 
       <section className="hero" id="home">
-        <aside className="chapter-rail" aria-label="Page chapters">
-          <span className="active">01</span>
-          <span>02</span>
-          <span>03</span>
-          <span>04</span>
-        </aside>
-
         <div className="hero-copy reveal">
-          <p className="eyebrow">The house premise</p>
           <h1>Quiet science.<br />Made visible.</h1>
-          <div className="fine-rule" />
           <p className="hero-lede">
-            Sophisticated skincare technology, made credible, sensorial and usable
-            for professionals and the people they care for.
+            Advanced skincare technology, composed with restraint.
           </p>
-          <a className="text-link" href="#philosophy">
-            Discover our philosophy <i aria-hidden="true" />
-          </a>
         </div>
 
         <div className="hero-still">
@@ -188,32 +167,14 @@ export default function Home() {
             sizes="(max-width: 760px) 100vw, 54vw"
           />
           <div className="hero-product-caption">
-            <span>01</span>
-            <p>The first expression / EXO-GF</p>
+            <p>EXO-GF / Bioactive Repair Cream</p>
           </div>
-        </div>
-      </section>
-
-      <section className="approach" aria-labelledby="approach-title">
-        <div className="section-heading">
-          <p>Our approach</p>
-          <span className="rule-dot" />
-        </div>
-        <h2 id="approach-title" className="sr-only">The TANUVA approach</h2>
-        <div className="approach-grid">
-          {approach.map(([number, title, copy]) => (
-            <article key={number}>
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
         </div>
       </section>
 
       <section className="philosophy" id="philosophy">
         <div className="philosophy-title">
-          <p className="eyebrow">02 / Philosophy</p>
+          <p className="eyebrow">Philosophy</p>
           <h2>A house of<br />considered care.</h2>
         </div>
         <div className="philosophy-copy">
@@ -370,7 +331,6 @@ export default function Home() {
           </ul>
           <a className="text-link text-link-light" href="#contact">Speak with the house <i aria-hidden="true" /></a>
         </div>
-        <div className="professional-orbit" aria-hidden="true"><span /></div>
       </section>
 
       <section className="heritage" aria-labelledby="heritage-title">
