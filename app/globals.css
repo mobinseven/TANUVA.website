@@ -288,6 +288,7 @@ input {
   --hero-parallax-y: 0px;
   position: relative;
   min-height: 100svh;
+  display: grid;
   overflow: hidden;
   background: #f8f7f5;
 }
