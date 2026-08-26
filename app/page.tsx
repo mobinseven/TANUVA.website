@@ -179,22 +179,16 @@ export default function Home() {
         <div className="hero-still">
           <Image
             className="hero-product-photo"
-            src="/product/exo-gf-chrome-jar.png"
+            src="/product/tanuva-hero-4k.png"
             alt="TANUVA EXO-GF Bioactive Repair Cream in its reflective silver airless jar"
             fill
             priority
             sizes="100vw"
           />
         </div>
-        <div className="hero-copy reveal">
-          <h1>Quiet science.<br />Made visible.</h1>
-          <p className="hero-lede">
-            Advanced skincare technology, composed with restraint.
-          </p>
-        </div>
-        <div className="hero-product-caption">
-          <p>EXO-GF / Bioactive Repair Cream</p>
-        </div>
+        <a className="hero-product-link" href="/product/exo-gf">
+          Discover EXO-GF
+        </a>
       </section>
 
       <section className="philosophy" id="philosophy">
