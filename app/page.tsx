@@ -15,7 +15,6 @@ export default function Home() {
   const [pastHero, setPastHero] = useState(false);
   const [introVisible, setIntroVisible] = useState(true);
   const [introLeaving, setIntroLeaving] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -55,31 +54,6 @@ export default function Home() {
       document.body.style.overflow = "";
     };
   }, [menuOpen, introVisible]);
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let frame = 0;
-    const updateHero = () => {
-      frame = 0;
-      const rect = hero.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(window.innerHeight, rect.height)));
-      hero.style.setProperty("--hero-parallax-y", `${Math.round(progress * -72)}px`);
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(updateHero);
-    };
-
-    updateHero();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
 
   useEffect(() => {
     const footer = footerRef.current;
@@ -175,7 +149,7 @@ export default function Home() {
         ))}
       </div>
 
-      <section className="hero" id="home" ref={heroRef}>
+      <section className="hero" id="home">
         <div className="hero-still">
           <Image
             className="hero-product-photo"
