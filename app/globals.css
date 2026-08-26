@@ -285,7 +285,6 @@ input {
 }
 
 .hero {
-  --hero-parallax-y: 0px;
   position: relative;
   min-height: 100svh;
   display: grid;
@@ -405,9 +404,6 @@ input {
 .hero-product-photo {
   object-fit: cover;
   object-position: center center;
-  transform: translate3d(0, var(--hero-parallax-y), 0) scale(1.055);
-  transition: transform 0.12s linear;
-  will-change: transform;
 }
 
 .hero-product-link {
