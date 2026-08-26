@@ -215,12 +215,7 @@ export default function Home() {
       </section>
 
       <section className="seal-story" aria-label="TANUVA house seal">
-        <div className="seal-image" />
-        <div className="seal-copy">
-          <p className="eyebrow">One house. One standard.</p>
-          <h2>Not a sequence<br />of releases.<br />A coherent world.</h2>
-          <p>Product, education, consultation and follow-up — composed to carry the same quiet standard.</p>
-        </div>
+        <div className="seal-image" role="img" aria-label="TANUVA house seal set within pale rose petals" />
       </section>
 
       <section className="science" id="science">
